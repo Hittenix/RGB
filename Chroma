@@ -1,0 +1,125 @@
+unit Unit1;
+
+
+
+interface
+
+
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.ComCtrls;
+
+
+
+type
+  TForm1 = class(TForm)
+    Panel1: TPanel;
+    procedure Panel1Click(Sender: TObject);
+  private
+  R : Byte;
+  G : Byte;
+  B : Byte;
+  C : TColor;
+    { Private-Deklarationen }
+  public
+    { Public-Deklarationen }
+  end;
+
+
+
+var
+  Form1: TForm1;
+
+
+
+implementation
+
+
+
+{$R *.dfm}
+
+
+
+
+
+procedure TForm1.Panel1Click(Sender: TObject);                      //Panel1Click
+var
+g2:Integer;
+  begin
+ShowMessage('HALLo');
+    C := RGB(R,G,B);
+    R := 255;
+    G:=0;
+    B:=0;
+    //ColorDialog1.Execute;
+    Panel1.Color := RGB(R,G,B);
+    Panel1.Refresh;
+
+
+
+    for g2 := 0 to 255 do
+      begin
+        g :=g2;
+        Panel1.Color := RGB(R,G,B);
+        Panel1.Refresh;
+        Sleep(1);
+      end;
+
+
+
+    for g2 := 0 to 255 do
+      begin
+        Panel1.Color := RGB(R-g2,G,B);
+        Panel1.Refresh;
+        Sleep(1);
+      end;
+
+
+
+    R := 0;
+    for g2 := 0 to 255 do
+      begin
+        B :=g2;
+        Panel1.Color := RGB(R,G,B);
+        Panel1.Refresh;
+        Sleep(1);
+      end;
+
+
+
+    for g2 := 0 to 255 do
+      begin
+        Panel1.Color := RGB(R,G-g2,B);
+        Panel1.Refresh;
+        Sleep(1);
+      end;
+
+
+
+    G := 0;
+    for g2 := 0 to 255 do
+      begin
+        R :=g2;
+        Panel1.Color := RGB(R,G,B);
+        Panel1.Refresh;
+        Sleep(1);
+      end;
+
+
+
+    for g2 := 0 to 255 do
+      begin
+        Panel1.Color := RGB(R,G,B-g2);
+        Panel1.Refresh;
+        Sleep(1);
+      end;
+
+
+
+    b := 0;
+  end;
+
+
+
+end.
